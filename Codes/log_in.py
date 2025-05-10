@@ -1,6 +1,6 @@
 import time,os
 import sqlite3
-from databse import retrive
+from databse import retrieve_password
 
 
 conn=sqlite3.connect('user_info.db ')
@@ -19,7 +19,7 @@ def login_():
     username=input('Enter username :')
     password=input('Enter password :')
 
-    if(retrive(username)==password):
+    if(retrieve_password(username)==password):
         return True
     else:
         return False

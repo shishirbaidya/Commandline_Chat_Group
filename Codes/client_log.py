@@ -2,7 +2,20 @@ import os
 import time
 from blessed import Terminal
 from Register import register_account
+from log_in import login_
+from dashboard import dashboard
 
+
+
+
+
+
+
+#-MODULES IMPORTS ENDS HERE !
+#                           #
+#                           #
+#                           #
+#FUNCTIONS STARTS FROM HERE #
 def main():
     term=Terminal()
     while True:
@@ -25,8 +38,12 @@ def main():
             register_account()
             input('Press Enter to return to menu...')
         elif command == 2:
-            print(' Login coming soon!')
-            time.sleep(1.5)
+            if login_():
+                dashboard(12)
+                time.sleep(1)
+            else:
+                print('failed')
+                time.sleep(1)
         elif command == 3:
             print(' Goodbye!')
             break

@@ -36,3 +36,25 @@ def retrieve_password(username):
     result = cursor.fetchone()
     conn.close()
     return result[0] if result else None
+
+def personal_info(name, username,location):
+    conn=sqlite3.connect(DB_NAME)
+    cursor=conn.cursor()
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS personal_info (
+        name TEXT PRIMARY KEY,
+        username TEXT ,
+        location TEXT 
+    )
+    ''')
+    conn.commit()
+    cursor.execute( 'INSERT INTO personal_info (name, username,location) VALUES (?, ?,?)', (name, username,location))
+    conn.commit()
+    conn.close()
+
+def retrive_personal_info(username):
+    conn=sqlite3.connect(DB_NAME)
+    cursor=conn.cursor()
+    cursor.execute('SELECT * FROM personal_info WHERE username=?',(username,))
+    result=cursor.fetchone()
+    return result
