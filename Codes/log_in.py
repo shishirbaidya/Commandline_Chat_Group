@@ -1,6 +1,6 @@
 import time,os
 import sqlite3
-from databse import retrive
+from Codes.databse import retrive
 
 
 conn=sqlite3.connect('user_info.db ')
