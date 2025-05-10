@@ -11,3 +11,5 @@ def dashboard(username):
     print('Name :',info[0])
     print('username :',info[1])
     print('location :',info[2])
+    
+

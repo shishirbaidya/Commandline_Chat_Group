@@ -18,9 +18,12 @@ def write():
     while True:
         message = input('')
         client.send(message.encode())
+def start_chat():
+    receive_thread = threading.Thread(target=receive)
+    receive_thread.start()
 
-receive_thread = threading.Thread(target=receive)
-receive_thread.start()
+    write_thread = threading.Thread(target=write)
+    write_thread.start()
 
-write_thread = threading.Thread(target=write)
-write_thread.start()
+    receive_thread.join()
+    write_thread.join()

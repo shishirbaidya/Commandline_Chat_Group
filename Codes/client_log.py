@@ -4,7 +4,7 @@ from blessed import Terminal
 from Register import register_account
 from log_in import login_
 from dashboard import dashboard
-
+from client import start_chat
 
 
 
@@ -38,9 +38,19 @@ def main():
             register_account()
             input('Press Enter to return to menu...')
         elif command == 2:
-            if login_():
-                dashboard(12)
+            true_false,username=login_()
+            if true_false:
+                dashboard(username)
                 time.sleep(1)
+
+                y_or_n =input('Join chat (y/n)? :')
+                print(y_or_n)
+                time.sleep(1)
+                if y_or_n == 'y':
+                 os.system('clear')
+                 while True:
+                  print('start writing')
+                  start_chat()# joining for messageing
             else:
                 print('failed')
                 time.sleep(1)
