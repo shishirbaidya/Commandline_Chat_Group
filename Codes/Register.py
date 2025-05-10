@@ -1,4 +1,4 @@
-from Codes.databse import insert_id_pass
+from databse import insert_id_pass
 
 def register_account():
     print('--- Register New Account ---')

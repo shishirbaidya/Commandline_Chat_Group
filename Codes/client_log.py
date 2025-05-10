@@ -1,7 +1,7 @@
 import os
 import time
 from blessed import Terminal
-from Codes.Register import register_account
+from Register import register_account
 
 def main():
     term=Terminal()
